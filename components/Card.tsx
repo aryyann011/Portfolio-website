@@ -16,7 +16,7 @@ export function IdentityCardDemo() {
           <div className="relative mt-4 h-32 w-32 shrink-0 overflow-hidden rounded-full border-4 border-zinc-950 shadow-xl">
             <img
               loading="lazy"
-              src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=1000&auto=format&fit=crop"
+              src="/Aryans.png"
               alt="Profile"
               className="h-full w-full object-cover grayscale transition-all duration-500 hover:grayscale-0 hover:scale-110"
             />
@@ -25,16 +25,16 @@ export function IdentityCardDemo() {
           {/* 2. Identity Info */}
           <div className="mt-6 flex flex-col items-center text-center">
             <h1 className="font-mono text-2xl font-bold tracking-tight text-white">
-              Alex Chen
+              Aryan Mishra
             </h1>
             <p className="mt-1 text-sm font-medium text-zinc-400">
-              Full Stack Engineer
+              Full Stack Developer
             </p>
             
             {/* Location Tag */}
             <div className="mt-2 flex items-center gap-1 rounded-full bg-zinc-800/50 px-3 py-1 text-xs text-zinc-500 backdrop-blur-sm">
               <MapPin className="h-3 w-3" />
-              <span>San Francisco, CA</span>
+              <span>Salt Lake, Kolkata</span>
             </div>
           </div>
 
