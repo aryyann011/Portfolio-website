@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-white dark:bg-black antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} w-full bg-white dark:bg-black antialiased`}
       >
         <LayoutWrapper>
           {children}
