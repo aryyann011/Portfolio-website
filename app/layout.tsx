@@ -4,6 +4,12 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/themeProvider";
 import { LayoutWrapper } from "@/components/LayoutWrapper";
 
+// const betania = Betania_Patmos_In({
+//   weight: "400",
+//   subsets: ["latin"],
+// });
+
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],

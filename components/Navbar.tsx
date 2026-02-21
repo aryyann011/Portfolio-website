@@ -20,7 +20,7 @@ export default function Navbar() {
 
     return (
         <div className="w-full flex items-center justify-center">
-            <div className="w-1/2 h-16 flex items-center justify-end gap-4 px-4 border-b z-50 relative">
+            <div className="w-3/5 h-16 flex items-center justify-end gap-4 px-4 border-b z-50 relative">
                 <p>Home</p>
                 <p>Projects</p>
                 <p>Connect</p>
@@ -38,7 +38,7 @@ export default function Navbar() {
                 }
                 </button>
             </div>
-            <br className="border-white border"/>
+            <br className="border-white border-2"/>
         </div>
 )
 
