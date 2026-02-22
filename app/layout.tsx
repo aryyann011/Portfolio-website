@@ -23,10 +23,6 @@ const satisfy = Satisfy({
   subsets: ["latin"],
   variable: "--font-satisfy",
 });
-// const bitcount = bitcount({
-//   weight 
-// })
-
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -46,7 +42,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${satisfy.variable} w-full bg-white dark:bg-black antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${satisfy.variable} w-full bg-white scale-90 origin-top dark:bg-black antialiased`}
       >
         <LayoutWrapper>
           {children}

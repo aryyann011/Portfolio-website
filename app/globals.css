@@ -3,19 +3,19 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-@theme {
+/* @theme {
   --font-playwrite: "Playwrite AT", cursive;
-}
+}*/
 @theme {
   --font-satisfy: var(--font-satisfy);
-}
+} 
 @custom-variant dark (&:is(.dark *));
 
-.betania-patmos-in-regular {
+/* .betania-patmos-in-regular {
   font-family: "Betania Patmos In", cursive;
   font-weight: 400;
   font-style: normal;
-}
+} */
 
 /* @font-face {
   font-family: "Betania Patmos In";
@@ -25,10 +25,10 @@
 .betania {
   font-family: "Betania Patmos In", cursive;
 } */
-
+/* 
 body {
   font-family: "Playwrite AT", cursive;
-}
+} */
 
 @theme inline {
   --color-background: var(--background);
