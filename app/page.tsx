@@ -1,8 +1,13 @@
 import { IdentityCardDemo } from "@/components/Card";
+import { Herosection } from "@/components/HeroSection";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <IdentityCardDemo/>
+    <div className="relative flex font-satisfy justify-center">
+      <div className="w-3/5">
+        <Herosection/>
+      </div>
+    </div>
   );
 }

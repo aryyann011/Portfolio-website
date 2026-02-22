@@ -1,15 +1,24 @@
 "use client"
 
-import navbar from "./Navbar"
+import { IdentityCardDemo } from "./Card"
+import Navbar from "./Navbar"
 import { ThemeProvider } from "./themeProvider"
 import * as React from 'react'
 
-export function layoutWrapper({children} : {children : React.ReactNode}){
+export function LayoutWrapper({children} : {children : React.ReactNode}){
 
 
     return (
-        <ThemeProvider>
-            
+        <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange>
+            <Navbar/>
+
+            <main>
+                {children}
+            </main>
         </ThemeProvider>
     )
 }
