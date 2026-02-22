@@ -73,6 +73,10 @@ body {
   --radius-4xl: calc(var(--radius) + 16px);
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
