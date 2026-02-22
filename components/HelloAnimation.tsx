@@ -1,110 +1,74 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
-const words = [
-  "Hola",
-  "Bonjour",
-  "Ciao",
-  "Namaste",
-  "Merhaba",
-  "Hello"
-]
+const words = ["Hello"]
 
 export default function MorphingText() {
-  const [index, setIndex] = useState(0)
-  const [text1, setText1] = useState(words[0])
-  const [text2, setText2] = useState(words[1])
+  const [wordIdx, setWordIdx] = useState(0)
+  const [visible, setVisible] = useState(false)
+  const hasStarted = useRef(false)
 
   useEffect(() => {
-    let morphTime = 1
-    let cooldownTime = 0.25
+    if (hasStarted.current) return
+    hasStarted.current = true
 
-    let morph = 0
-    let cooldown = cooldownTime
-    let lastTime = new Date().getTime()
+    let wi = 0
 
-    const animate = () => {
-      requestAnimationFrame(animate)
+    const showWord = () => {
+      setWordIdx(wi)
+      setVisible(true)
 
-      let now = new Date().getTime()
-      let dt = (now - lastTime) / 1000
-      lastTime = now
+      // Stop and stay on Hello
+      if (wi === words.length - 1) return
 
-      cooldown -= dt
-
-      if (cooldown <= 0) {
-        morph += dt
-        let fraction = morph / morphTime
-
-        if (fraction > 1) {
-          cooldown = cooldownTime
-          morph = 0
-          setIndex((prev) => {
-            const next = (prev + 1) % words.length
-            setText1(words[next])
-            setText2(words[(next + 1) % words.length])
-            return next
-          })
-        }
-
-        setMorph(fraction)
-      }
+      const duration = words[wi].length * 80 + 600
+      setTimeout(() => {
+        setVisible(false)
+        setTimeout(() => {
+          wi++
+          showWord()
+        }, 300)
+      }, duration)
     }
 
-    let setMorph = (fraction: number) => {
-      const text1El = document.getElementById("text1")
-      const text2El = document.getElementById("text2")
-
-      if (!text1El || !text2El) return
-
-      fraction = Math.min(fraction, 1)
-      text2El.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`
-      text2El.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`
-
-      fraction = 1 - fraction
-      text1El.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`
-      text1El.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`
-    }
-
-    animate()
+    showWord()
   }, [])
 
+  const word = words[wordIdx]
+
   return (
-    <div className="relative flex justify-center items-center h-40 text-6xl font-bold betania">
-      <svg style={{ position: "absolute" }}>
-        <defs>
-          <filter id="threshold">
-            <feColorMatrix
-              in="SourceGraphic"
-              type="matrix"
-              values="1 0 0 0 0
-                      0 1 0 0 0
-                      0 0 1 0 0
-                      0 0 0 255 -140"
-            />
-          </filter>
-        </defs>
-      </svg>
+    <div className="relative flex justify-start items-center text-6xl font-bold font-satisfy">
+      <span style={{ display: "inline-flex" }}>
+        {word.split("").map((char, i) => (
+          <span
+            key={`${wordIdx}-${i}`}
+            style={{
+              display: "inline-block",
+              animation: visible
+                ? `wave-in 0.5s cubic-bezier(0.22,1,0.36,1) forwards`
+                : `wave-out 0.2s ease forwards`,
+              animationDelay: visible ? `${i * 60}ms` : `${i * 20}ms`,
+              opacity: 0,
+              transform: "translateY(30px)",
+            }}
+          >
+            {char}
+          </span>
+        ))}
+      </span>
 
-      <div
-        style={{ filter: "url(#threshold)" }}
-        className="relative"
-      >
-        <span
-          id="text1"
-          className="absolute"
-        >
-          {text1}
-        </span>
-
-        <span
-          id="text2"
-          className="absolute"
-        >
-          {text2}
-        </span>
-      </div>
+      <style>{`
+        @keyframes wave-in {
+          0%   { opacity: 0; transform: translateY(30px) scale(0.8); }
+          60%  { opacity: 1; transform: translateY(-6px) scale(1.05); }
+          100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        @keyframes wave-out {
+          0%   { opacity: 1; transform: translateY(0); }
+          100% { opacity: 0; transform: translateY(-20px); }
+        }
+      `}</style>
     </div>
   )
 }

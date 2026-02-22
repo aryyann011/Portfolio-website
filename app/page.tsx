@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="relative flex justify-center">
+    <div className="relative flex font-satisfy justify-center">
       <div className="w-3/5">
         <Herosection/>
       </div>

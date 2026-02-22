@@ -3,6 +3,10 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/themeProvider";
 import { LayoutWrapper } from "@/components/LayoutWrapper";
+import { Playwrite_AT } from "next/font/google";
+import { Satisfy } from "next/font/google";
+import { Bitcount_Grid_Double_Ink } from "next/font/google";
+
 
 // const betania = Betania_Patmos_In({
 //   weight: "400",
@@ -14,6 +18,15 @@ const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
+const satisfy = Satisfy({
+  weight: "400",  // take this from the snippet google gave you
+  subsets: ["latin"],
+  variable: "--font-satisfy",
+});
+// const bitcount = bitcount({
+//   weight 
+// })
+
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -33,7 +46,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} w-full bg-white dark:bg-black antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${satisfy.variable} w-full bg-white dark:bg-black antialiased`}
       >
         <LayoutWrapper>
           {children}
