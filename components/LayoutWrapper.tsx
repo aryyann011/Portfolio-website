@@ -13,10 +13,11 @@ export function LayoutWrapper({children} : {children : React.ReactNode}){
         attribute="class"
         defaultTheme="system"
         enableSystem
-        disableTransitionOnChange>
+        disableTransitionOnChange 
+        >
             <Navbar/>
 
-            <main>
+            <main className="mt-20">
                 {children}
             </main>
         </ThemeProvider>

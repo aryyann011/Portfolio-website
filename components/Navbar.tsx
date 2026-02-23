@@ -1,45 +1,45 @@
 "use client"
+
 import { useEffect, useState } from "react"
 import { Sun, Moon } from "lucide-react"
 import { useTheme } from "next-themes"
 
 export default function Navbar() {
+  const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+ 
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
-    const { theme, setTheme } = useTheme()
-    const [mounted, setMounted] = useState(false)
+  useEffect(() => {
+    console.log("Theme changed:", theme)
+  }, [theme])
 
-    useEffect(() => {
-        setMounted(true)
-    }, [])
+  if (!mounted) return null
 
-    useEffect(() => {
-        console.log("Theme changed:", theme)
-    }, [theme])
+  return (
+    <nav className="fixed top-4 left-1/2 -translate-x-1/2 w-full z-50 flex items-center justify-between px-12 py-4 rounded-xl border border-border/40 bg-background/80 backdrop-blur-md">
+      {/* Logo / Brand */}
+      <span className="text-xl font-semibold tracking-tight">MyPortfolio</span>
 
-    if (!mounted) return null
+      {/* Nav Links */}
+      <div className="flex items-center gap-6 text-sm text-muted-foreground">
+        <a href="/" className="hover:text-foreground transition-colors">Home</a>
+        <a href="/projects" className="hover:text-foreground transition-colors">Projects</a>
+        <a href="/connect" className="hover:text-foreground transition-colors">Connect</a>
+      </div>
 
-    return (
-        <div className="w-full flex items-center justify-center">
-            <div className="w-3/5 h-16 flex items-center justify-end gap-4 px-4 border-b z-50 relative">
-                <p>Home</p>
-                <p>Projects</p>
-                <p>Connect</p>
-
-                <button
-                className="p-2 border rounded transition-all ease-out"
-                onClick={() => {
-                    console.log("CLICKED")
-                    setTheme(theme === "dark" ? "light" : "dark")
-                }}
-                >
-                {theme === "dark"
-                    ? <Moon className="h-5 w-5" />
-                    : <Sun className="h-5 w-5" />
-                }
-                </button>
-            </div>
-            <br className="border-white border-2"/>
-        </div>
-)
-
+      {/* Theme Toggle */}
+      <button
+        className="p-2 rounded-md hover:bg-accent transition-colors text-muted-foreground hover:text-foreground"
+        onClick={() => {
+          console.log("CLICKED")
+          setTheme(theme === "dark" ? "light" : "dark")
+        }}
+      >
+        {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+      </button>
+    </nav>
+  )
 }
