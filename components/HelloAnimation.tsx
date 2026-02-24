@@ -19,7 +19,6 @@ export default function MorphingText() {
       setWordIdx(wi)
       setVisible(true)
 
-      // Stop and stay on Hello
       if (wi === words.length - 1) return
 
       const duration = words[wi].length * 80 + 600
@@ -38,7 +37,7 @@ export default function MorphingText() {
   const word = words[wordIdx]
 
   return (
-    <div className="relative flex justify-start items-center text-6xl font-bold font-satisfy">
+    <div className="relative flex justify-start items-center text-6xl font-bold font-satisfy text-zinc-900 dark:text-white">
       <span style={{ display: "inline-flex" }}>
         {word.split("").map((char, i) => (
           <span

@@ -29,16 +29,25 @@ const tools2 = [
 ];
 
 function Badge({ name, icon }: { name: string; icon: string }) {
+  // Checks if the simpleicon is purely white so we can invert it in light mode
+  const isWhiteIcon = icon.includes("ffffff");
+
   return (
-    <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-colors duration-200 cursor-default select-none shrink-0">
-      <img src={icon} alt={name} width={18} height={18} className="object-contain" />
-      <span className="text-sm text-white/80 font-medium whitespace-nowrap">{name}</span>
+    <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-zinc-200 bg-zinc-100 hover:bg-zinc-200 dark:border-white/10 dark:bg-white/5 dark:backdrop-blur-sm dark:hover:bg-white/10 transition-colors duration-200 cursor-default select-none shrink-0">
+      <img 
+        src={icon} 
+        alt={name} 
+        width={18} 
+        height={18} 
+        className={`object-contain ${isWhiteIcon ? "invert dark:invert-0" : ""}`} 
+      />
+      <span className="text-sm text-zinc-700 dark:text-white/80 font-medium whitespace-nowrap">{name}</span>
     </div>
   );
 }
 
 function MarqueeRow({ items, reverse = false }: { items: typeof tools; reverse?: boolean }) {
-  const doubled = [...items, ...items]; // duplicate for seamless loop
+  const doubled = [...items, ...items];
 
   return (
     <div className="overflow-hidden w-full">
@@ -60,12 +69,13 @@ function MarqueeRow({ items, reverse = false }: { items: typeof tools; reverse?:
 export function TechMarquee() {
   return (
     <div className="w-full py-6 flex flex-col gap-5">
-      <p className="text-white text-2xl font-semibold font-satisfy mb-2">Tools that I know</p>
+      <p className="text-zinc-900 dark:text-white text-2xl font-semibold font-satisfy mb-2">Tools that I know</p>
 
       {/* fade edges */}
       <div className="relative">
-        <div className="pointer-events-none absolute left-0 top-0 h-full w-24 z-10 bg-gradient-to-r from-black to-transparent" />
-        <div className="pointer-events-none absolute right-0 top-0 h-full w-24 z-10 bg-gradient-to-l from-black to-transparent" />
+        {/* Updated gradients to switch from white in light mode to black in dark mode */}
+        <div className="pointer-events-none absolute left-0 top-0 h-full w-24 z-10 bg-gradient-to-r from-white dark:from-black to-transparent" />
+        <div className="pointer-events-none absolute right-0 top-0 h-full w-24 z-10 bg-gradient-to-l from-white dark:from-black to-transparent" />
 
         <div className="flex flex-col gap-3">
           <MarqueeRow items={tools} />
