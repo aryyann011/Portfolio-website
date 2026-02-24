@@ -37,7 +37,7 @@ export default function MorphingText() {
   const word = words[wordIdx]
 
   return (
-    <div className="relative flex justify-start items-center text-6xl font-bold font-satisfy text-zinc-900 dark:text-white">
+    <div className="relative flex md:justify-start justify-center items-center text-6xl font-bold font-satisfy text-zinc-900 dark:text-white">
       <span style={{ display: "inline-flex" }}>
         {word.split("").map((char, i) => (
           <span

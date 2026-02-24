@@ -9,7 +9,6 @@ export function GithubGraph() {
   const innerRef = useRef<HTMLDivElement>(null)
   const [scale, setScale] = useState(1)
   
-  // Theme handling for the calendar
   const { resolvedTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
@@ -29,7 +28,6 @@ export function GithubGraph() {
     return () => window.removeEventListener("resize", calculate)
   }, [])
 
-  // Prevent hydration mismatch by hiding until mounted
   if (!mounted) return <div className="w-full h-[150px] animate-pulse bg-zinc-200 dark:bg-zinc-800 rounded-md"></div>
 
   return (

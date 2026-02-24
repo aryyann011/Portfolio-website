@@ -37,10 +37,8 @@ export const CometCard = ({
   const glareX = useTransform(mouseXSpring, [-0.5, 0.5], [0, 100]);
   const glareY = useTransform(mouseYSpring, [-0.5, 0.5], [0, 100]);
 
-  // Dark Mode Glare (White shine)
   const glareBackgroundDark = useMotionTemplate`radial-gradient(circle at ${glareX}% ${glareY}%, rgba(255, 255, 255, 0.9) 10%, rgba(255, 255, 255, 0.75) 20%, rgba(255, 255, 255, 0) 80%)`;
   
-  // Light Mode Glare (Subtle dark sheen for white cards)
   const glareBackgroundLight = useMotionTemplate`radial-gradient(circle at ${glareX}% ${glareY}%, rgba(0, 0, 0, 0.1) 10%, rgba(0, 0, 0, 0.05) 20%, rgba(0, 0, 0, 0) 80%)`;
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -79,19 +77,16 @@ export const CometCard = ({
           z: 50,
           transition: { duration: 0.2 },
         }}
-        // FIX: Moved the massive hardcoded inline shadow to a Tailwind class so it can be swapped in dark mode
         className="relative rounded-2xl shadow-[0px_520px_146px_0px_rgba(0,0,0,0.01),0px_333px_133px_0px_rgba(0,0,0,0.04),0px_83px_83px_0px_rgba(0,0,0,0.26),0px_21px_46px_0px_rgba(0,0,0,0.29)] dark:shadow-[0_0_40px_rgba(255,255,255,0.05)]"
       >
         {children}
         
-        {/* FIX: Light Mode Glare */}
         <motion.div
           className="pointer-events-none absolute inset-0 z-50 h-full w-full rounded-[16px] mix-blend-multiply dark:hidden"
           style={{ background: glareBackgroundLight, opacity: 0.8 }}
           transition={{ duration: 0.2 }}
         />
 
-        {/* FIX: Dark Mode Glare */}
         <motion.div
           className="pointer-events-none absolute inset-0 z-50 h-full w-full rounded-[16px] mix-blend-overlay hidden dark:block"
           style={{ background: glareBackgroundDark, opacity: 0.6 }}

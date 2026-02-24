@@ -9,7 +9,6 @@ export function FooterCTA() {
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
-  // State for form fields
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -38,7 +37,6 @@ export function FooterCTA() {
 
       if (supabaseError) throw supabaseError
 
-      // Success! Reset form and show success state
       setFormData({ name: "", email: "", message: "" })
       setSubmitted(true)
       
@@ -57,12 +55,10 @@ export function FooterCTA() {
   return (
     <div className="w-full flex flex-col items-center mt-12 mb-8">
       
-      {/* 1. The Glass Card with Inline Form */}
       <div className="w-full relative overflow-hidden rounded-3xl border border-zinc-200 dark:border-white/10 bg-white/50 dark:bg-[#0a0a0a] backdrop-blur-md p-8 md:p-10 mb-10 shadow-lg dark:shadow-none transition-all duration-300">
         
         <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10">
           
-          {/* Left Text Section */}
           <div className="flex-1 text-center lg:text-left">
             <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 dark:text-white font-satisfy mb-3">
               Got an idea? Let's talk.
@@ -72,7 +68,6 @@ export function FooterCTA() {
             </p>
           </div>
 
-          {/* Right Form Section */}
           <div className="w-full lg:w-[400px] shrink-0">
             <form onSubmit={handleSubmit} className="flex flex-col gap-3">
               <div className="flex gap-3">
@@ -105,7 +100,6 @@ export function FooterCTA() {
                 className="w-full bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 rounded-xl px-4 py-3 text-sm text-zinc-900 dark:text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-zinc-900 dark:focus:ring-white/30 transition-all resize-none"
               />
               
-              {/* Error Message Display */}
               {error && <p className="text-red-500 text-xs px-1">{error}</p>}
 
               <button
@@ -120,7 +114,6 @@ export function FooterCTA() {
                 ) : (
                   <>
                     <span>Send Message</span>
-                    {/* <Send size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" /> */}
                   </>
                 )}
               </button>
@@ -129,17 +122,15 @@ export function FooterCTA() {
         </div>
       </div>
 
-      {/* 2. Secondary Links & Final Sign-off */}
       <div className="w-full flex flex-col md:flex-row items-center justify-between gap-6 pt-6 border-t border-zinc-200 dark:border-white/10">
         
-        {/* Secondary Action Buttons */}
         <div className="flex flex-wrap justify-center gap-3">
           <a
             href="/resume.pdf"
             target="_blank"
             className="group flex items-center gap-2 px-5 py-2.5 rounded-full border border-zinc-200 dark:border-white/10 bg-zinc-50 dark:bg-white/5 text-zinc-600 dark:text-white/60 hover:bg-zinc-100 dark:hover:bg-white/10 hover:text-zinc-900 dark:hover:text-white transition-all duration-300 text-sm font-medium"
           >
-            <FileText size={16} className="group-hover:scale-110 transition-transform" />
+            <FileText size={20} className="group-hover:scale-110 transition-transform" />
             <span>Resume</span>
           </a>
           <a
@@ -147,21 +138,20 @@ export function FooterCTA() {
             target="_blank"
             className="group flex items-center gap-2 px-5 py-2.5 rounded-full border border-zinc-200 dark:border-white/10 bg-zinc-50 dark:bg-white/5 text-zinc-600 dark:text-white/60 hover:bg-zinc-100 dark:hover:bg-white/10 hover:text-zinc-900 dark:hover:text-white transition-all duration-300 text-sm font-medium"
           >
-            <Coffee size={16} className="group-hover:rotate-12 transition-transform" />
+            <Coffee size={20} className="group-hover:rotate-12 transition-transform" />
             <span>Buy me a coffee</span>
           </a>
         </div>
 
-        {/* Status & Copyright */}
         <div className="flex flex-col items-center md:items-end gap-1.5">
           <div className="flex items-center gap-2">
-            <span className="relative flex h-2.5 w-2.5">
+            {/* <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
-            </span>
-            <span className="text-sm text-zinc-700 dark:text-white/70 font-medium">Available for work</span>
+            </span> */}
+            <span className="text-lg text-zinc-700 dark:text-white/70 font-medium">Available for work</span>
           </div>
-          <p className="text-zinc-500 dark:text-zinc-600 text-xs">
+          <p className="text-zinc-500 dark:text-zinc-600 text-lg">
             © {new Date().getFullYear()} Aryan Mishra. Built with ❤️.
           </p>
         </div>

@@ -18,19 +18,16 @@ export default function Navbar() {
     <div className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4">
       <nav className="relative flex items-center justify-between px-6 py-3 w-3/4 rounded-full border border-border/40 bg-background/80 backdrop-blur-md shadow-lg">
 
-        {/* Logo */}
         <a href="/" className="text-base font-bold tracking-tight text-xl text-foreground">
           MyPortfolio
         </a>
 
-        {/* Center Links */}
         <div className="hidden md:flex items-center gap-8 text-lg font-medium text-muted-foreground">
           <a href="/" className="hover:text-foreground transition-colors">Home</a>
           <a href="/projects" className="hover:text-foreground transition-colors">Projects</a>
           <a href="/connect" className="hover:text-foreground transition-colors">Connect</a>
         </div>
 
-        {/* Right: Theme toggle + mobile menu */}
         <div className="flex items-center gap-2">
           <button
             onClick={() => {
@@ -50,7 +47,6 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Mobile Dropdown */}
         {isOpen && (
           <div className="absolute top-full mt-4 left-0 right-0 mx-2 rounded-2xl border border-border/40 bg-background/95 backdrop-blur-md shadow-xl p-5 flex flex-col gap-4 text-lg font-medium text-muted-foreground md:hidden">
             <a href="/" onClick={() => setIsOpen(false)} className="hover:text-foreground transition-colors">Home</a>

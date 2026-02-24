@@ -29,7 +29,6 @@ const tools2 = [
 ];
 
 function Badge({ name, icon }: { name: string; icon: string }) {
-  // Checks if the simpleicon is purely white so we can invert it in light mode
   const isWhiteIcon = icon.includes("ffffff");
 
   return (
@@ -71,9 +70,7 @@ export function TechMarquee() {
     <div className="w-full py-6 flex flex-col gap-5">
       <p className="text-zinc-900 dark:text-white text-2xl font-semibold font-satisfy mb-2">Tools that I know</p>
 
-      {/* fade edges */}
       <div className="relative">
-        {/* Updated gradients to switch from white in light mode to black in dark mode */}
         <div className="pointer-events-none absolute left-0 top-0 h-full w-24 z-10 bg-gradient-to-r from-white dark:from-black to-transparent" />
         <div className="pointer-events-none absolute right-0 top-0 h-full w-24 z-10 bg-gradient-to-l from-white dark:from-black to-transparent" />
 

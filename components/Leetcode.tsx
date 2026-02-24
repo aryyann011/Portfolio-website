@@ -6,7 +6,7 @@ const profiles = [
   {
     platform: "LeetCode",
     username: "sushimachine",
-    link: "https://leetcode.com/jhajyotish821",
+    link: "https://leetcode.com/u/sushimachine/",
     icon: <Code2 size={20} className="text-zinc-600 dark:text-zinc-400" />,
     solved: "400+",
   },

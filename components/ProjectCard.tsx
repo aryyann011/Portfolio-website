@@ -20,8 +20,6 @@ export function ProjectCard({
   liveUrl,
   image,
 }: ProjectCardProps) {
-  // We don't need state for the hover effect anymore as we are using tailwind group-hover
-  // const [hovered, setHovered] = useState(false)
 
   return (
     <div
@@ -34,7 +32,6 @@ export function ProjectCard({
           <img
             src={image}
             alt={title}
-            // FIX: Changed opacity-90 to opacity-100 for crisper light mode images
             className="w-full h-full object-cover opacity-100 dark:opacity-80 group-hover:scale-105 transition-transform duration-500"
           />
         ) : (
@@ -44,7 +41,6 @@ export function ProjectCard({
             </span>
           </div>
         )}
-        {/* FIX: The overlay now ONLY exists in dark mode. It is removed in light mode. */}
         <div className="absolute inset-0 pointer-events-none dark:bg-gradient-to-t dark:from-zinc-950 dark:via-transparent dark:to-transparent" />
       </div>
 
