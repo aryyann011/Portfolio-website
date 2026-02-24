@@ -41,12 +41,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${satisfy.variable} w-full bg-white h-full scale-90 origin-top dark:bg-black antialiased`}
-      >
-        <LayoutWrapper>
-          {children}
-        </LayoutWrapper>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${satisfy.variable} 
+        w-full bg-white min-h-screen dark:bg-black antialiased`}>
+        
+        <div className="[zoom:0.9]">
+          <LayoutWrapper>
+            {children}
+          </LayoutWrapper>
+        </div>
+
       </body>
     </html>
   );

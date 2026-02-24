@@ -28,7 +28,7 @@ export function IdentityCardDemo() {
               Aryan Mishra
             </h1>
             <p className="mt-1 text-sm font-medium text-zinc-500 dark:text-zinc-400">
-              Full Stack Developer
+              Full Stack Web-Developer
             </p>
             
             <div className="mt-2 flex items-center gap-1 rounded-full px-3 py-1 text-xs backdrop-blur-sm bg-zinc-100 text-zinc-600 dark:bg-zinc-800/50 dark:text-zinc-500">
@@ -57,7 +57,7 @@ export function IdentityCardDemo() {
   );
 }
 
-function SocialLink({ href, icon, label }: { href: string; icon: React.ReactNode; label: string }) {
+function SocialLink({ href, icon, label}: { href: string; icon: React.ReactNode; label: string }) {
   return (
     <Link
       href={href}

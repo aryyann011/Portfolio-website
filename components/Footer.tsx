@@ -2,7 +2,7 @@
 
 import { Coffee, FileText, Send } from "lucide-react"
 import { useState } from "react"
-import { supabase } from "@/lib/supabase" // Adjust this path to where your client is
+import { supabase } from "@/lib/supabase" 
 
 export function FooterCTA() {
   const [isSubmitting, setIsSubmitting] = useState(false)
