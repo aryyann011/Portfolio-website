@@ -2,21 +2,56 @@
 
 import { Coffee, FileText, Send } from "lucide-react"
 import { useState } from "react"
+import { supabase } from "@/lib/supabase" // Adjust this path to where your client is
 
 export function FooterCTA() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // State for form fields
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: ""
+  })
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-    
-    // TODO: Hook this up to your backend or an email service (like Web3Forms/EmailJS)
-    setTimeout(() => {
-      setIsSubmitting(false)
+    setError(null)
+
+    try {
+      const { error: supabaseError } = await supabase
+        .from('messages')
+        .insert([
+          { 
+            name: formData.name, 
+            email: formData.email, 
+            message: formData.message 
+          }
+        ])
+
+      if (supabaseError) throw supabaseError
+
+      // Success! Reset form and show success state
+      setFormData({ name: "", email: "", message: "" })
       setSubmitted(true)
-      setTimeout(() => setSubmitted(false), 3000) // Reset after 3s
-    }, 1500)
+      
+      setTimeout(() => {
+        setSubmitted(false)
+      }, 3000)
+
+    } catch (err: any) {
+      console.error("Error sending message:", err)
+      setError("Failed to send. Please try again.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -43,36 +78,49 @@ export function FooterCTA() {
               <div className="flex gap-3">
                 <input
                   type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
                   placeholder="Name"
                   required
                   className="w-full bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 rounded-xl px-4 py-2.5 text-sm text-zinc-900 dark:text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-zinc-900 dark:focus:ring-white/30 transition-all"
                 />
                 <input
                   type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   placeholder="Email"
                   required
                   className="w-full bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 rounded-xl px-4 py-2.5 text-sm text-zinc-900 dark:text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-zinc-900 dark:focus:ring-white/30 transition-all"
                 />
               </div>
               <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
                 placeholder="Your message..."
                 required
                 rows={3}
                 className="w-full bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 rounded-xl px-4 py-3 text-sm text-zinc-900 dark:text-white placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-zinc-900 dark:focus:ring-white/30 transition-all resize-none"
               />
+              
+              {/* Error Message Display */}
+              {error && <p className="text-red-500 text-xs px-1">{error}</p>}
+
               <button
                 type="submit"
                 disabled={isSubmitting || submitted}
                 className="group flex items-center justify-center gap-2 w-full px-4 py-3 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-semibold rounded-xl hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-all disabled:opacity-70 disabled:cursor-not-allowed"
               >
                 {submitted ? (
-                  <span>Message Sent! ✓</span>
+                  <span className="text-black dark:text-black">Message Sent!</span>
                 ) : isSubmitting ? (
                   <span>Sending...</span>
                 ) : (
                   <>
                     <span>Send Message</span>
-                    <Send size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                    {/* <Send size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" /> */}
                   </>
                 )}
               </button>
@@ -95,7 +143,7 @@ export function FooterCTA() {
             <span>Resume</span>
           </a>
           <a
-            href="https://buymeacoffee.com/yourlink"
+            href="https://buymeacoffee.com/aryyann011"
             target="_blank"
             className="group flex items-center gap-2 px-5 py-2.5 rounded-full border border-zinc-200 dark:border-white/10 bg-zinc-50 dark:bg-white/5 text-zinc-600 dark:text-white/60 hover:bg-zinc-100 dark:hover:bg-white/10 hover:text-zinc-900 dark:hover:text-white transition-all duration-300 text-sm font-medium"
           >
@@ -114,7 +162,7 @@ export function FooterCTA() {
             <span className="text-sm text-zinc-700 dark:text-white/70 font-medium">Available for work</span>
           </div>
           <p className="text-zinc-500 dark:text-zinc-600 text-xs">
-            © {new Date().getFullYear()} Aryan Mishra. Built with Next.js & Tailwind.
+            © {new Date().getFullYear()} Aryan Mishra. Built with ❤️.
           </p>
         </div>
       </div>
