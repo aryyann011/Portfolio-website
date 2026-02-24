@@ -21,12 +21,7 @@ export function GithubGraph() {
         const innerWidth = innerRef.current.scrollWidth
         
         if (innerWidth > wrapperWidth) {
-          const newScale = wrapperWidth / innerWidth
-          setScale(newScale)
-          setContainerHeight(`${innerRef.current.offsetHeight * newScale}px`)
-        } else {
-          setScale(1)
-          setContainerHeight("auto")
+          setScale(wrapperWidth / innerWidth)
         }
       }
     }
@@ -42,11 +37,7 @@ export function GithubGraph() {
     <div ref={wrapperRef} className="w-full overflow-hidden" style={{ height: containerHeight }}>
       <div
         ref={innerRef}
-        style={{ 
-          transform: `scale(${scale})`, 
-          transformOrigin: "top left", 
-          width: "max-content"
-        }}
+        style={{ zoom: scale }}
       >
         <GitHubCalendar
           username="aryyann011"
