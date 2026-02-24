@@ -1,13 +1,10 @@
 "use client"
 
-import { IdentityCardDemo } from "./Card"
 import Navbar from "./Navbar"
 import { ThemeProvider } from "./themeProvider"
 import * as React from 'react'
 
 export function LayoutWrapper({children} : {children : React.ReactNode}){
-
-
     return (
         <ThemeProvider
         attribute="class"
@@ -17,7 +14,7 @@ export function LayoutWrapper({children} : {children : React.ReactNode}){
         >
             <Navbar/>
 
-            <main className="mt-20">
+            <main className="pt-16">
                 {children}
             </main>
         </ThemeProvider>

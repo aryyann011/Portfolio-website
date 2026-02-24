@@ -7,19 +7,12 @@ import { Playwrite_AT } from "next/font/google";
 import { Satisfy } from "next/font/google";
 import { Bitcount_Grid_Double_Ink } from "next/font/google";
 
-
-// const betania = Betania_Patmos_In({
-//   weight: "400",
-//   subsets: ["latin"],
-// });
-
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 const satisfy = Satisfy({
-  weight: "400",  // take this from the snippet google gave you
+  weight: "400",  
   subsets: ["latin"],
   variable: "--font-satisfy",
 });
@@ -41,12 +34,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${satisfy.variable} w-full bg-white h-full scale-90 origin-top dark:bg-black antialiased`}
-      >
-        <LayoutWrapper>
-          {children}
-        </LayoutWrapper>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${satisfy.variable} 
+        w-full bg-white min-h-screen dark:bg-black antialiased`}>
+        
+        <div className="[zoom:0.9]">
+          <LayoutWrapper>
+            {children}
+          </LayoutWrapper>
+        </div>
+
       </body>
     </html>
   );

@@ -8,6 +8,7 @@ export function GithubGraph() {
   const wrapperRef = useRef<HTMLDivElement>(null)
   const innerRef = useRef<HTMLDivElement>(null)
   const [scale, setScale] = useState(1)
+  const [containerHeight, setContainerHeight] = useState("auto")
   
   const { resolvedTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
@@ -18,12 +19,19 @@ export function GithubGraph() {
       if (wrapperRef.current && innerRef.current) {
         const wrapperWidth = wrapperRef.current.offsetWidth
         const innerWidth = innerRef.current.scrollWidth
+        
         if (innerWidth > wrapperWidth) {
-          setScale(wrapperWidth / innerWidth)
+          const newScale = wrapperWidth / innerWidth
+          setScale(newScale)
+          setContainerHeight(`${innerRef.current.offsetHeight * newScale}px`)
+        } else {
+          setScale(1)
+          setContainerHeight("auto")
         }
       }
     }
-    setTimeout(calculate, 500)
+    
+    setTimeout(calculate, 150)
     window.addEventListener("resize", calculate)
     return () => window.removeEventListener("resize", calculate)
   }, [])
@@ -31,10 +39,14 @@ export function GithubGraph() {
   if (!mounted) return <div className="w-full h-[150px] animate-pulse bg-zinc-200 dark:bg-zinc-800 rounded-md"></div>
 
   return (
-    <div ref={wrapperRef} className="w-full">
+    <div ref={wrapperRef} className="w-full overflow-hidden" style={{ height: containerHeight }}>
       <div
         ref={innerRef}
-        style={{ zoom: scale }}
+        style={{ 
+          transform: `scale(${scale})`, 
+          transformOrigin: "top left", 
+          width: "max-content"
+        }}
       >
         <GitHubCalendar
           username="aryyann011"

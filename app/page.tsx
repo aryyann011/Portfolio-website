@@ -10,7 +10,7 @@ import { GitHubCalendar } from "react-github-calendar"
 
 export default function Home() {
   return (
-    <div className="relative h-full flex flex-col items-center px-4">
+    <div className="relative flex flex-col items-center px-4">
       <div className="w-full mb-10 sm:w-4/5 md:w-3/4 lg:w-3/5">
         <Herosection/>
       </div>

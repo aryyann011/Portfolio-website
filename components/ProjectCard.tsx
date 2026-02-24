@@ -125,7 +125,7 @@ const projects = [
     title: "Nyaya Sahayak",
     description:
       "A Next-Gen Legal Tech Platform bridging the gap between Citizens, Legal Professionals, and Law Enforcement via AI & Real-time Data.",
-    tags: ["React", "Supabase", "TailwindCSS", "GenAI"],
+    tags: ["React", "Supabase", "TailwindCSS", "Node.js", "pgvector"],
     githubUrl: "https://github.com/aryyann011/Nyayak",
     liveUrl: "https://nyayasahayak-zeta.vercel.app/",
     image: "/Nyayak.png",
