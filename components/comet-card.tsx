@@ -10,8 +10,8 @@ import {
 import { cn } from "@/lib/utils";
 
 export const CometCard = ({
-  rotateDepth = 17.5,
-  translateDepth = 20,
+  rotateDepth = 8, 
+  translateDepth = 10, 
   className,
   children,
 }: {
@@ -25,8 +25,8 @@ export const CometCard = ({
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
-  const mouseXSpring = useSpring(x);
-  const mouseYSpring = useSpring(y);
+  const mouseXSpring = useSpring(x, { stiffness: 300, damping: 30 });
+  const mouseYSpring = useSpring(y, { stiffness: 300, damping: 30 });
 
   const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], [`-${rotateDepth}deg`, `${rotateDepth}deg`]);
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], [`${rotateDepth}deg`, `-${rotateDepth}deg`]);
@@ -73,8 +73,8 @@ export const CometCard = ({
         }}
         initial={{ scale: 1, z: 0 }}
         whileHover={{
-          scale: 1.05,
-          z: 50,
+          scale: 0.98, 
+          z: 10,       
           transition: { duration: 0.2 },
         }}
         className="relative rounded-2xl shadow-[0px_520px_146px_0px_rgba(0,0,0,0.01),0px_333px_133px_0px_rgba(0,0,0,0.04),0px_83px_83px_0px_rgba(0,0,0,0.26),0px_21px_46px_0px_rgba(0,0,0,0.29)] dark:shadow-[0_0_40px_rgba(255,255,255,0.05)]"

@@ -40,13 +40,13 @@ export function IdentityCardDemo() {
           <div className="my-6 h-px w-full bg-gradient-to-r from-transparent via-zinc-200 to-transparent dark:via-zinc-700" />
 
           <div className="flex w-full items-center justify-center gap-6">
-            <SocialLink href="https://github.com/aryyann011" icon={<Github className="h-5 w-5" />} label="GitHub" />
-            <SocialLink href="https://x.com/sushimachine11" icon={<Twitter className="h-5 w-5" />} label="X" />
-            <SocialLink href="https://linkedin.com/in/aryan-mishra" icon={<Linkedin className="h-5 w-5" />} label="LinkedIn" />
+            <SocialLink href="https://github.com/aryyann011" icon={<Github className="h-6 w-6" />} label="GitHub" />
+            <SocialLink href="https://x.com/sushimachine11" icon={<Twitter className="h-6 w-6" />} label="X" />
+            <SocialLink href="https://www.linkedin.com/in/aryan-mishra-987b4a321/" icon={<Linkedin className="h-6 w-6" />} label="LinkedIn" />
           </div>
 
           <div className="mt-8 flex w-full justify-between text-[10px] font-mono uppercase tracking-widest text-zinc-400 dark:text-zinc-600">
-             <span>ID: 8829-XJ</span>
+             {/* <span>ID: 8829-XJ</span> */}
              <span>EXP: 2028</span>
           </div>
 

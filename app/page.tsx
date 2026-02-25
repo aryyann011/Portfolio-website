@@ -21,7 +21,7 @@ export default function Home() {
         <p className="text-white text-2xl font-semibold font-satisfy mb-2">Github Contributions</p>
         <GithubGraph/>
       </div>
-      <div className="w-full mb-16 sm:w-4/5 md:w-3/4 lg:w-3/5">
+      <div id="projects" className="w-full mb-16 sm:w-4/5 md:w-3/4 lg:w-3/5">
         <ProjectsSection/>
       </div>
       <div className="w-full mb-4 sm:w-4/5 md:w-3/4 lg:w-3/5">

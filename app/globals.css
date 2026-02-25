@@ -76,6 +76,9 @@ body {
 html, body {
   overflow-x: hidden;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 :root {
   --radius: 0.625rem;

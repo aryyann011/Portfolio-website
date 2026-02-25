@@ -19,16 +19,26 @@ export default function Navbar() {
       <nav className="relative flex items-center justify-between pb-3 pt-1 w-full sm:w-4/5 md:w-3/4 lg:w-3/5 border-b border-zinc-300 dark:border-zinc-900 bg-transparent">
 
         <a href="/" className="group flex items-center font-medium tracking-tight text-3xl">
-  <span className="mr-1.5 font-light text-zinc-300 dark:text-zinc-700">/</span>
+  <span className="mr font-bold text-zinc-600 dark:text-zinc-700">/</span>
   <span className="text-foreground">aryan</span>
   <span className="text-zinc-500 transition-colors group-hover:text-zinc-400">.dev</span>
 </a>
         <div className="flex items-center gap-4 md:gap-8">
           
           <div className="hidden md:flex items-center gap-8 text-lg font-medium text-muted-foreground">
-            <a href="/" className="hover:text-foreground transition-colors">Home</a>
-            <a href="/projects" className="hover:text-foreground transition-colors">Projects</a>
-            <a href="/connect" className="hover:text-foreground transition-colors">Connect</a>
+            <a href="/" className="hover:text-foreground transition-colors">About</a>
+            <button
+              onClick={() => {
+                const el = document.getElementById("projects");
+                if (el) {
+                  el.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+              className="hover:text-foreground transition-colors"
+            >
+              Projects
+            </button>
+            {/* <a href="#connect" className="hover:text-foreground transition-colors">Connect</a> */}
           </div>
 
           <div className="flex items-center gap-2">
