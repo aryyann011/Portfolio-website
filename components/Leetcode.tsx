@@ -13,7 +13,7 @@ const profiles = [
   {
     platform: "GeeksforGeeks",
     username: "sushimachine",
-    link: "https://auth.geeksforgeeks.org/user/jhajyotish",
+    link: "https://www.geeksforgeeks.org/",
     icon: <Terminal size={20} className="text-zinc-600 dark:text-zinc-400" />,
     solved: "100+",
   },

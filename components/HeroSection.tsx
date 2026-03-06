@@ -13,13 +13,24 @@ export function Herosection(){
                     <div>
                         <Greeting/><br />
                         <div className="text-zinc-400 leading-relaxed max-w-xl">
-                            <p className="mb-4">
-                                I’m a Full Stack Developer who builds robust, scalable web applications from the database to the browser. I don't just write code, I take full ownership of the platforms I engineer.
-                            </p>
-                            <p>
-                                Currently, I'm building <span className="text-zinc-600 dark:text-zinc-100 font-semibold">Workbench Studio</span>, a high-performance collaborative environment that syncs live document editing with algorithmic system design graphs. Whether I'm solving bottlenecks in <span className="text-zinc-600 dark:text-zinc-100 font-semibold">C++</span> or architecting <span className="text-zinc-600 dark:text-zinc-100 font-semibold">real-time event-driven systems</span>, I approach problems with both a technical and product mindset. I focus on clean architecture, fast backends, and <span className="text-zinc-600 dark:text-zinc-100 font-semibold">highly polished, interactive user interfaces</span>.
-                            </p>
-                            </div>
+  <p className="mb-4">
+    I'm a <span className="text-zinc-600 dark:text-zinc-100 font-semibold">Full Stack Developer</span> who enjoys building web applications from the ground up from designing the 
+    <span className="text-zinc-600 dark:text-zinc-100 font-semibold"> database</span> and 
+    <span className="text-zinc-600 dark:text-zinc-100 font-semibold"> backend logic</span> to creating smooth, responsive 
+    <span className="text-zinc-600 dark:text-zinc-100 font-semibold"> user interfaces</span> in the browser.
+  </p>
+
+  <p>
+    Right now I'm working on <span className="text-zinc-600 dark:text-zinc-100 font-semibold">Workbench Studio</span>, a collaborative platform that combines 
+    <span className="text-zinc-600 dark:text-zinc-100 font-semibold"> live document editing</span> with 
+    <span className="text-zinc-600 dark:text-zinc-100 font-semibold"> system design diagrams</span>. I enjoy solving performance problems in 
+    <span className="text-zinc-600 dark:text-zinc-100 font-semibold"> C++</span> and building 
+    <span className="text-zinc-600 dark:text-zinc-100 font-semibold"> real-time systems</span> that feel fast and reliable. Most of my work focuses on 
+    <span className="text-zinc-600 dark:text-zinc-100 font-semibold"> clean architecture</span>, 
+    <span className="text-zinc-600 dark:text-zinc-100 font-semibold">efficient backends</span>, and 
+    <span className="text-zinc-600 dark:text-zinc-100 font-semibold"> polished interfaces</span>.
+  </p>
+</div>
                     </div>
                 </div>
                 
