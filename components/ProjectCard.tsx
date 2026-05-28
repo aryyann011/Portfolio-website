@@ -109,7 +109,7 @@ const projects = [
       "Workbench Studio is a high-performance, dual-engine environment designed to synchronize technical requirements and architectural visualization.",
     tags: ["Next.js", "TypeScript", "TailwindCSS"],
     githubUrl: "https://github.com/aryyann011/Workbench-Studio",
-    liveUrl: "",
+    liveUrl: "https://workbench-studio.vercel.app/",
     image: "/WorkBench.png",
   },
   {
