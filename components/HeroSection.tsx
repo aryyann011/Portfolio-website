@@ -21,15 +21,16 @@ export function Herosection(){
   </p>
 
   <p>
-    Right now I'm working on <span className="text-zinc-600 dark:text-zinc-100 font-semibold">Workbench Studio</span>, a collaborative platform that combines 
-    <span className="text-zinc-600 dark:text-zinc-100 font-semibold"> live document editing</span> with 
-    <span className="text-zinc-600 dark:text-zinc-100 font-semibold"> system design diagrams</span>. I enjoy solving performance problems in 
-    <span className="text-zinc-600 dark:text-zinc-100 font-semibold"> C++</span> and building 
-    <span className="text-zinc-600 dark:text-zinc-100 font-semibold"> real-time systems</span> that feel fast and reliable. Most of my work focuses on 
-    <span className="text-zinc-600 dark:text-zinc-100 font-semibold"> clean architecture</span>, 
-    <span className="text-zinc-600 dark:text-zinc-100 font-semibold">efficient backends</span>, and 
-    <span className="text-zinc-600 dark:text-zinc-100 font-semibold"> polished interfaces</span>.
-  </p>
+  Right now I'm working on <span className="text-zinc-600 dark:text-zinc-100 font-semibold">Acute</span>, an autonomous 
+  <span className="text-zinc-600 dark:text-zinc-100 font-semibold"> codebase patching agent</span> that utilizes 
+  <span className="text-zinc-600 dark:text-zinc-100 font-semibold"> RAG-powered retrieval</span> and 
+  <span className="text-zinc-600 dark:text-zinc-100 font-semibold"> AST-based surgical patching</span>. I enjoy solving complex logic problems in 
+  <span className="text-zinc-600 dark:text-zinc-100 font-semibold"> Python</span> and building 
+  <span className="text-zinc-600 dark:text-zinc-100 font-semibold"> autonomous systems</span> that can reliably refactor and debug large-scale repositories. Most of my work focuses on 
+  <span className="text-zinc-600 dark:text-zinc-100 font-semibold"> agentic workflows</span>, 
+  <span className="text-zinc-600 dark:text-zinc-100 font-semibold">distributed memory retrieval</span>, and 
+  <span className="text-zinc-600 dark:text-zinc-100 font-semibold"> robust self-healing architecture</span>.
+</p>
 </div>
                     </div>
                 </div>
