@@ -20,16 +20,14 @@ export function Herosection(){
     <span className="text-zinc-600 dark:text-zinc-100 font-semibold"> user interfaces</span> in the browser.
   </p>
 
-  <p>
+<p>
   Right now I'm working on <span className="text-zinc-600 dark:text-zinc-100 font-semibold">Acute</span>, an autonomous 
   <span className="text-zinc-600 dark:text-zinc-100 font-semibold"> codebase patching agent</span> that utilizes 
   <span className="text-zinc-600 dark:text-zinc-100 font-semibold"> RAG-powered retrieval</span> and 
-  <span className="text-zinc-600 dark:text-zinc-100 font-semibold"> AST-based surgical patching</span>. I enjoy solving complex logic problems in 
-  <span className="text-zinc-600 dark:text-zinc-100 font-semibold"> Python</span> and building 
-  <span className="text-zinc-600 dark:text-zinc-100 font-semibold"> autonomous systems</span> that can reliably refactor and debug large-scale repositories. Most of my work focuses on 
-  <span className="text-zinc-600 dark:text-zinc-100 font-semibold"> agentic workflows</span>, 
-  <span className="text-zinc-600 dark:text-zinc-100 font-semibold">distributed memory retrieval</span>, and 
-  <span className="text-zinc-600 dark:text-zinc-100 font-semibold"> robust self-healing architecture</span>.
+  <span className="text-zinc-600 dark:text-zinc-100 font-semibold"> AST-based surgical patching</span>. My background is deeply rooted in 
+  <span className="text-zinc-600 dark:text-zinc-100 font-semibold"> backend web development</span> and building 
+  <span className="text-zinc-600 dark:text-zinc-100 font-semibold"> real-time systems</span>, and I am currently applying those core system design principles to 
+  <span className="text-zinc-600 dark:text-zinc-100 font-semibold"> AI engineering</span>.
 </p>
 </div>
                     </div>
