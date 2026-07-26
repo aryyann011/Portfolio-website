@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import { Sun, Moon, Menu, X } from "lucide-react"
 import { useTheme } from "next-themes"
+import Link from "next/link";
 
 export default function Navbar() {
   const { theme, setTheme } = useTheme()
@@ -18,15 +19,15 @@ export default function Navbar() {
       
       <nav className="relative flex items-center justify-between pb-3 pt-1 w-full sm:w-4/5 md:w-3/4 lg:w-3/5 border-b border-zinc-300 dark:border-zinc-900 bg-transparent">
 
-        <a href="/" className="group flex items-center font-medium tracking-tight text-3xl">
+        <Link href="/" className="group flex items-center font-medium tracking-tight text-3xl">
   <span className="mr font-bold text-zinc-600 dark:text-zinc-700">/</span>
   <span className="text-foreground">aryan</span>
   <span className="text-zinc-500 transition-colors group-hover:text-zinc-400">.dev</span>
-</a>
+</Link>
         <div className="flex items-center gap-4 md:gap-8">
           
           <div className="hidden md:flex items-center gap-8 text-lg font-medium text-muted-foreground">
-            <a href="/" className="hover:text-foreground transition-colors">About</a>
+            <Link href="/" className="hover:text-foreground transition-colors">About</Link>
             <button
               onClick={() => {
                 const el = document.getElementById("projects");
@@ -38,6 +39,7 @@ export default function Navbar() {
             >
               Projects
             </button>
+            <a href="/resume.pdf" className="hover:text-foreground transition-colors">Resume</a>
             {/* <a href="#connect" className="hover:text-foreground transition-colors">Connect</a> */}
           </div>
 
@@ -60,7 +62,7 @@ export default function Navbar() {
 
         {isOpen && (
           <div className="absolute top-full left-0 right-0 mt-1 border-b border-x border-border/40 bg-background/95 backdrop-blur-md shadow-lg p-5 flex flex-col gap-4 text-base font-medium text-muted-foreground md:hidden z-50">
-            <a href="/" onClick={() => setIsOpen(false)} className="hover:text-foreground transition-colors">Home</a>
+            <Link href="/" onClick={() => setIsOpen(false)} className="hover:text-foreground transition-colors">Home</Link>
             <a href="/projects" onClick={() => setIsOpen(false)} className="hover:text-foreground transition-colors">Projects</a>
             <a href="/connect" onClick={() => setIsOpen(false)} className="hover:text-foreground transition-colors">Connect</a>
           </div>
