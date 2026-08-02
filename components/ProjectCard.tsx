@@ -113,6 +113,14 @@ const projects = [
     image: "/WorkBench.png",
   },
   {
+    title: "Distributed code execution platform",
+    description : "DCEP is a high-performance, fault-tolerant system for executing untrusted C++ code securely using containerized sandboxing and asynchronous microservices.",
+    tags : ["Nodejs", "Docker", "socket.io", "Redis", "Typescript"],
+    githubUrl : "https://github.com/aryyann011/DCEP-Distributed-Code-Execution-Platform",
+    liveUrl: "",
+    image: "/dcep.png"
+  },
+  {
     title: "Xdemy",
     description:
       "Xdemy is a comprehensive Learning Management System (LMS) designed to simulate a real-world educational platform.",
