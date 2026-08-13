@@ -6,6 +6,7 @@ import { LayoutWrapper } from "@/components/LayoutWrapper";
 import { Playwrite_AT } from "next/font/google";
 import { Satisfy } from "next/font/google";
 import { Bitcount_Grid_Double_Ink } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,6 +39,7 @@ export default function RootLayout({
         w-full bg-white min-h-screen dark:bg-black antialiased`}>
         
         <div className="[zoom:0.9]">
+          <Analytics/>
           <LayoutWrapper>
             {children}
           </LayoutWrapper>
